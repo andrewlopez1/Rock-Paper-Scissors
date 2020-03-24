@@ -1,9 +1,9 @@
 # Rock-Paper-Scissors
 
-#Members
-#Andrew Lopez - alopez8969@csu.fullerton.edu
+Members
+Andrew Lopez - alopez8969@csu.fullerton.edu
 
-#How to execute:
+How to execute:
 
-#Extra Credit? No
+Extra Credit? No
 
