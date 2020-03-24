@@ -1,6 +1,7 @@
 # Rock-Paper-Scissors
 
-Members
+Members:
+
 Andrew Lopez - alopez8969@csu.fullerton.edu
 
 How to execute:
