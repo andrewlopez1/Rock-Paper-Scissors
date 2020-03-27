@@ -6,9 +6,9 @@ function RPS(portval) {
     let playerinputstring;
     let serverinput;
     let serverinputstring;
-    let pwins;
-    let swins;
-    let gamesplayed;
+    let pwins = 0;
+    let swins = 0;
+    let gamesplayed = 0;
     let winlossmsg;
 
     const express = require("express");
@@ -35,12 +35,12 @@ function RPS(portval) {
 
     app.post("/gamescript", function(req, res) {
         console.log("check 1");
-        console.log(req.body.name);
+        console.log(req.body["choice"]);
 
-    if (req.body.value === "rock"){
+    if (req.body["choice"] === "rock"){
         console.log("check 2");
         playerinput = 1;
-        playerinputstring = req.body.value;
+        playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 1){
             winlossmsg = "It was a Tie";
@@ -55,10 +55,10 @@ function RPS(portval) {
         }
         gamesplayed++; 
     }
-    if (req.body.value === "paper"){
+    if (req.body["choice"] === "paper"){
         console.log("check 3");
         playerinput = 2;
-        playerinputstring = req.body.value;
+        playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 2){
             winlossmsg = "It was a Tie";
@@ -73,10 +73,10 @@ function RPS(portval) {
         }
         gamesplayed++;
     }
-    if (req.body.value === "scissors"){
+    if (req.body["choice"] === "scissors"){
         console.log("check 4");
         playerinput = 3;
-        playerinputstring = req.body.value;
+        playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 3){
             winlossmsg = "It was a Tie";
