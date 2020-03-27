@@ -2,14 +2,14 @@
 
 function RPS(portval) {
 
-    this.playerinput = undefined;
-    this.playerinputstring = undefined;
-    this.serverinput = undefined;
-    this.serverinputstring = undefined;
-    this.pwins = 0;
-    this.swins = 0;
-    this.gamesplayed = 0;
-    this.winlossmsg = undefined;
+    let playerinput;
+    let playerinputstring;
+    let serverinput;
+    let serverinputstring;
+    let pwins;
+    let swins;
+    let gamesplayed;
+    let winlossmsg;
 
     const express = require("express");
 
@@ -19,9 +19,13 @@ function RPS(portval) {
     app.set('view engine','ejs'); //this is needed to use ejs
     app.listen(portval);
 
-    app.use(bodyParser.urlencoded({ extended: true })); 
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     // Handles the sending of the index
+    app.post("/", function(req, res){
+	
+	    res.sendFile(__dirname + "/rps.html");
+    });
     app.get("/", function(req, res){
 	
 	    res.sendFile(__dirname + "/rps.html");
@@ -30,8 +34,11 @@ function RPS(portval) {
 
 
     app.post("/gamescript", function(req, res) {
+        console.log("check 1");
+        console.log(req.body.name);
 
     if (req.body.value === "rock"){
+        console.log("check 2");
         playerinput = 1;
         playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -49,6 +56,7 @@ function RPS(portval) {
         gamesplayed++; 
     }
     if (req.body.value === "paper"){
+        console.log("check 3");
         playerinput = 2;
         playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -66,6 +74,7 @@ function RPS(portval) {
         gamesplayed++;
     }
     if (req.body.value === "scissors"){
+        console.log("check 4");
         playerinput = 3;
         playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -82,6 +91,7 @@ function RPS(portval) {
         }
         gamesplayed++;
     }
+    console.log("check 5");
     if (serverinput === 1){
         serverinputstring = "rock";
     }
@@ -92,7 +102,9 @@ function RPS(portval) {
         serverinputstring = "scissors";
     }
 
-    resp.render("rps", {winlossmsg,playerinputstring,serverinput,pwins,swins,gamesplayed});
+    console.log("check 6");
+    console.log(winlossmsg,playerinputstring,serverinputstring,pwins,swins,gamesplayed);
+    res.render("rps", {winlossmsg,playerinputstring,serverinputstring,pwins,swins,gamesplayed});
     });
 
 }
