@@ -14,7 +14,7 @@ function RPS(portval) {
     // Needed to parse the request body
     const bodyParser = require("body-parser");
     const app     = express();
-    
+    app.set('view engine','ejs'); //this is needed to use ejs
     app.listen(portval);
 
     app.use(bodyParser.urlencoded({ extended: true })); 
