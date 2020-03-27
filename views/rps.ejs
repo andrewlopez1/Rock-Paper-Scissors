@@ -4,12 +4,12 @@
         <body style="font-family:verdana;">
             <h1>Please make your move!</h1>
             <input type="radio" id="rock" name="choice" value="rock">
-            <label for="rock">Rock</label><br>
+            <label for="rock">Rock <%= rock %></label><br>
             <input type="radio" id="paper" name="choice" value="paper">
-            <label for="paper">Paper</label><br>
+            <label for="paper">Paper<%=paper %></label><br>
             <input type="radio" id="scissors" name="choice" value="scissors">
-            <label for="scissors">Scissors</label><br>
-            <%= rock %>
+            <label for="scissors">Scissors<%= scissors %></label><br>
+           
 
             <input type="submit" value="Play!">
         </body>
