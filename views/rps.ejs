@@ -1,17 +1,16 @@
 <!DOCTYPE html> 
 <html>
-    <form action="/gamescript" method="POST">
+    <form action="/" method="POST">
+        <title> <%= winlossmsg %></title><br>
         <body style="font-family:verdana;">
-            <h1>Please make your move!</h1>
-            <input type="radio" id="rock" name="choice" value="rock">
-            <label for="rock">Rock <%= rock %></label><br>
-            <input type="radio" id="paper" name="choice" value="paper">
-            <label for="paper">Paper<%=paper %></label><br>
-            <input type="radio" id="scissors" name="choice" value="scissors">
-            <label for="scissors">Scissors<%= scissors %></label><br>
-           
-
-            <input type="submit" value="Play!">
+            <h1>
+                You picked: <%= playerinputstring %> <br>
+                Server picked: <%= serverinputstring %> <br>
+                Player wins: <%= pwins %> <br>
+                server wins: <%= swins %> <br>
+                Total games: <%= gamesplayed %> <br>
+            </h1>
+                <input type="submit" value="Play Again!">
         </body>
     </form>
 </html>

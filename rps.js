@@ -3,7 +3,9 @@
 function RPS(portval) {
 
     this.playerinput = undefined;
+    this.playerinputstring = undefined;
     this.serverinput = undefined;
+    this.serverinputstring = undefined;
     this.pwins = 0;
     this.swins = 0;
     this.gamesplayed = 0;
@@ -31,6 +33,7 @@ function RPS(portval) {
 
     if (req.body.value === "rock"){
         playerinput = 1;
+        playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 1){
             winlossmsg = "It was a Tie";
@@ -47,6 +50,7 @@ function RPS(portval) {
     }
     if (req.body.value === "paper"){
         playerinput = 2;
+        playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 2){
             winlossmsg = "It was a Tie";
@@ -63,6 +67,7 @@ function RPS(portval) {
     }
     if (req.body.value === "scissors"){
         playerinput = 3;
+        playerinputstring = req.body.value;
         serverinput = Math.floor((Math.random() * 3) +1 );
         if (serverinput === 3){
             winlossmsg = "It was a Tie";
@@ -77,7 +82,17 @@ function RPS(portval) {
         }
         gamesplayed++;
     }
+    if (serverinput === 1){
+        serverinputstring = "rock";
+    }
+    if (serverinput === 2){
+        serverinputstring = "paper";
+    }
+    if (serverinput === 3){
+        serverinputstring = "scissors";
+    }
 
+    resp.render("rps", {winlossmsg,playerinputstring,serverinput,pwins,swins,gamesplayed});
     });
 
 }
