@@ -1,6 +1,7 @@
 "use strict"
 
 function RPS(portval) {
+    "use strict"
 
     let playerinput;
     let playerinputstring;
@@ -34,11 +35,12 @@ function RPS(portval) {
 
 
     app.post("/gamescript", function(req, res) {
-        console.log("check 1");
-        console.log(req.body["choice"]);
+        "use strict"
+        //console.log("check 1");
+       // console.log(req.body["choice"]);
 
     if (req.body["choice"] === "rock"){
-        console.log("check 2");
+        //console.log("check 2");
         playerinput = 1;
         playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -56,7 +58,7 @@ function RPS(portval) {
         gamesplayed++; 
     }
     if (req.body["choice"] === "paper"){
-        console.log("check 3");
+        //console.log("check 3");
         playerinput = 2;
         playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -74,7 +76,7 @@ function RPS(portval) {
         gamesplayed++;
     }
     if (req.body["choice"] === "scissors"){
-        console.log("check 4");
+        //console.log("check 4");
         playerinput = 3;
         playerinputstring = req.body["choice"];
         serverinput = Math.floor((Math.random() * 3) +1 );
@@ -91,7 +93,7 @@ function RPS(portval) {
         }
         gamesplayed++;
     }
-    console.log("check 5");
+    //console.log("check 5");
     if (serverinput === 1){
         serverinputstring = "rock";
     }
@@ -102,8 +104,8 @@ function RPS(portval) {
         serverinputstring = "scissors";
     }
 
-    console.log("check 6");
-    console.log(winlossmsg,playerinputstring,serverinputstring,pwins,swins,gamesplayed);
+    //console.log("check 6");
+    //console.log(winlossmsg,playerinputstring,serverinputstring,pwins,swins,gamesplayed);
     res.render("rps", {winlossmsg,playerinputstring,serverinputstring,pwins,swins,gamesplayed});
     });
 
