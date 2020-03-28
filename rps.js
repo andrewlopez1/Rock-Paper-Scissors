@@ -114,4 +114,5 @@ function RPS(portval) {
 
 
   
-  let myGame = new RPS(3000);
+    let myGame = new RPS(3000);
+    Object.seal(myGame);
