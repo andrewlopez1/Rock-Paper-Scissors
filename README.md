@@ -5,6 +5,7 @@ Members:
 Andrew Lopez - alopez8969@csu.fullerton.edu
 Michael Rozsypal - mrozsypal@csu.fullerton.edu
 Arthur Salazar - art2015@csu.fullerton.edu
+Marianne Tolentino - mariannetolentino@csu.fullerton.edu
 How to execute:
 Type in console within the directory of the files 
 node rps.js
